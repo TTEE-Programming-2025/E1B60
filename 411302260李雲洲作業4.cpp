@@ -41,4 +41,14 @@ void enterStudentGrades() {
     }
     printf("輸入完成！返回主選單。\n");
 }
+void displayStudents() {
+    if (studentCount == 0) {
+        printf("尚未輸入學生資料。\n");
+        return;
+    }
+    printf("學生資料如下：\n");
+    for (int i = 0; i < studentCount; i++) {
+        printf("姓名: %s\t學號: %d\t平均: %.2f\n", students[i].name, students[i].id, students[i].average);
+    }
+}
 
