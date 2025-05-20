@@ -51,4 +51,21 @@ void displayStudents() {
         printf("姓名: %s\t學號: %d\t平均: %.2f\n", students[i].name, students[i].id, students[i].average);
     }
 }
+void searchStudent() {
+    char name[20];
+    int found = 0;
+    printf("請輸入要查詢的學生姓名：");
+    scanf("%s", name);
+
+    for (int i = 0; i < studentCount; i++) {
+        if (strcmp(name, students[i].name) == 0) {
+            printf("找到學生：%s\t學號: %d\t平均成績: %.2f\n", students[i].name, students[i].id, students[i].average);
+            found = 1;
+            break;
+        }
+    }
+    if (!found) {
+        printf("查無此學生資料。\n");
+    }
+}
 
