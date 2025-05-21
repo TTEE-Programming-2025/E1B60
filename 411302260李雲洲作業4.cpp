@@ -68,4 +68,21 @@ void searchStudent() {
         printf("查無此學生資料。\n");
     }
 }
+int compare(const void *a, const void *b) {
+    float avgA = ((Student*)a)->average;
+    float avgB = ((Student*)b)->average;
+    return (avgB > avgA) - (avgB < avgA); 
+}
+
+void rankStudents() {
+    if (studentCount == 0) {
+        printf("尚未輸入學生資料。\n");
+        return;
+    }
+    qsort(students, studentCount, sizeof(Student), compare);
+    printf("學生成績排名如下：\n");
+    for (int i = 0; i < studentCount; i++) {
+        printf("%d. %s\t平均: %.2f\n", i + 1, students[i].name, students[i].average);
+    }
+}
 
