@@ -85,4 +85,35 @@ void rankStudents() {
         printf("%d. %s\t平均: %.2f\n", i + 1, students[i].name, students[i].average);
     }
 }
+void menu() {
+    char choice;
+    while (1) {
+        printf("------------[Grade System]------------\n");
+        printf("a. Enter student grades\n");
+        printf("b. Display student grades\n");
+        printf("c. Search for student grades\n");
+        printf("d. Grade ranking\n");
+        printf("e. Exit system\n");
+        printf("請選擇：");
+        scanf(" %c", &choice);
 
+        switch (choice) {
+            case 'a': enterStudentGrades(); break;
+            case 'b': displayStudents(); break;
+            case 'c': searchStudent(); break;
+            case 'd': rankStudents(); break;
+            case 'e': {
+                char confirm;
+                printf("確定離開？(y/n)：");
+                scanf(" %c", &confirm);
+                if (confirm == 'y') {
+                    printf("程式結束，感謝使用。\n");
+                    return;
+                }
+                break;
+            }
+            default:
+                printf("輸入錯誤，請重新選擇。\n");
+        }
+    }
+}
