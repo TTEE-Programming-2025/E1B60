@@ -117,3 +117,21 @@ void menu() {
         }
     }
 }
+int main() {
+    char password[5];
+
+    for (int i = 0; i < 3; i++) {
+        printf("請輸入密碼（4碼）：");
+        scanf("%s", password);
+        if (strcmp(password, "2025") == 0) {
+            printf("歡迎進入系統！\n");
+            menu();
+            return 0;
+        } else {
+            printf("密碼錯誤！\n");
+        }
+    }
+
+    printf("密碼錯誤超過三次，程式結束。\n");
+    return 0;
+}
